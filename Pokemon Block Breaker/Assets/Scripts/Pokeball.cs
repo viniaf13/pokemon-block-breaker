@@ -47,4 +47,13 @@ public class Pokeball : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(ballVelocityX, ballVelocityY);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasStarted)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        
+    }
 }
