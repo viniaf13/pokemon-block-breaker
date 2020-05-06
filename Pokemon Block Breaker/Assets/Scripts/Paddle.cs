@@ -15,7 +15,7 @@ public class Paddle : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Input.mousePosition.x / Screen.width * screenWidthInUnits);
+        //Debug.Log(Input.mousePosition.x / Screen.width * screenWidthInUnits);
 
         //Mouse x position in units
         float mousePosInUnits = Input.mousePosition.x / Screen.width * screenWidthInUnits;
