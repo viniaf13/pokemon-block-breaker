@@ -8,17 +8,22 @@ public class Pokeball : MonoBehaviour
     [SerializeField] Paddle paddle;
     [SerializeField] float ballVelocityX = 2f;
     [SerializeField] float ballVelocityY = 15f;
+    [SerializeField] AudioClip[] ballSounds;
     
 
     // State
     Vector2 paddleToBall;
-    public bool hasStarted = false;
+    private bool hasStarted = false;
+
+    //Cached componente references
+    AudioSource myAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         // Ball attached to paddle
         paddleToBall = transform.position - paddle.transform.position;
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,8 +57,9 @@ public class Pokeball : MonoBehaviour
     {
         if (hasStarted)
         {
-            GetComponent<AudioSource>().Play();
+            //Allows multiple ball sounds but Im only using 1
+            AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
+            myAudioSource.PlayOneShot(clip);
         }
-        
     }
 }
