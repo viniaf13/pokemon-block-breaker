@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     //Config params
     [Range(0.1f,2f)][SerializeField] float gameSpeed = 1f;
@@ -17,9 +17,10 @@ public class GameStatus : MonoBehaviour
     //Singleton Pattern
     private void Awake()
     {
-        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        int gameStatusCount = FindObjectsOfType<GameSession>().Length;
         if (gameStatusCount > 1)
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
@@ -44,5 +45,10 @@ public class GameStatus : MonoBehaviour
     {
         score += pointsPerBlock;
         scoreText.text = score.ToString();
+    }
+
+    public void ResetGame()
+    {
+        Destroy(gameObject);
     }
 }
