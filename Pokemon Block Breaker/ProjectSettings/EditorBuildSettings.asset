@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 501a991d7213746428836b9bcf8250f5
   - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: c51a88dd0d7141f4b9d048da892a294d
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: b26cb503b3aa0374f8c694d6fd594e83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 2.unity
     guid: 4b2a7393d4911e244b24439c588b7988
   - enabled: 1

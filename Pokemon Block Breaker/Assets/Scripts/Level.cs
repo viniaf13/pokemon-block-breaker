@@ -15,7 +15,6 @@ public class Level : MonoBehaviour
     void Start()
     {
         breakableBlocks = GetTotalBlockNumber();
-        Debug.Log("total: " + breakableBlocks);
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
@@ -34,7 +33,6 @@ public class Level : MonoBehaviour
     public void DecreaseTotalBlockNumber()
     {
         breakableBlocks--;
-        Debug.Log("total: " + breakableBlocks);
         if (breakableBlocks <= 0)
         {
             sceneLoader.LoadNextScene();
