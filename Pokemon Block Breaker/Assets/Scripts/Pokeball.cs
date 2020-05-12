@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pokeball : MonoBehaviour
 {
-    //Config params
+    //Configuration parameters
     [SerializeField] Paddle paddle;
     [SerializeField] float ballVelocityX = 2f;
     [SerializeField] float ballVelocityY = 15f;
@@ -15,7 +15,7 @@ public class Pokeball : MonoBehaviour
     Vector2 paddleToBall;
     private bool hasStarted = false;
 
-    //Cached componente references
+    //Cached references
     AudioSource myAudioSource;
 
     // Start is called before the first frame update

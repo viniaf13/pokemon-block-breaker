@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
-    //Config params
+    //Configuration parameters
     [Range(0.1f,2f)][SerializeField] float gameSpeed = 1f;
-    [SerializeField] int pointsPerBlock = 100;
+    [SerializeField] int pointsPerBlock = 150;
     [SerializeField] TextMeshProUGUI scoreText;
 
-    //State variables
+    //State
     [SerializeField] int score = 0;
 
     //Singleton Pattern
@@ -41,9 +41,9 @@ public class GameSession : MonoBehaviour
     }
 
 
-    public void AddToScore()
+    public void AddToScore(int maxHits)
     {
-        score += pointsPerBlock;
+        score += pointsPerBlock / maxHits;
         scoreText.text = score.ToString();
     }
 

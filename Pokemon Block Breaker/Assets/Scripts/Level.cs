@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    //Parameters
+    //Configuration Parameters
     int breakableBlocks;
 
     //Cached reference
