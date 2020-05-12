@@ -912,6 +912,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5737286
       objectReference: {fileID: 0}
+    - target: {fileID: 2130991895455853210, guid: ba0312b7de1080940b262253a05cd204,
+        type: 3}
+      propertyPath: hitSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 324bdc54e02b20f4ea8c897979fba0b8,
+        type: 3}
     - target: {fileID: 2130991895455853214, guid: ba0312b7de1080940b262253a05cd204,
         type: 3}
       propertyPath: m_Name
