@@ -26,8 +26,8 @@ public class Level : MonoBehaviour
 
     private int GetTotalBlockNumber()
     {
-        GameObject[] allBlocks = GameObject.FindGameObjectsWithTag("block");
-        return allBlocks.Length;
+        GameObject[] totalBreakableBlocks = GameObject.FindGameObjectsWithTag("Breakable");
+        return totalBreakableBlocks.Length;
     }
 
     public void DecreaseTotalBlockNumber()

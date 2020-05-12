@@ -19,7 +19,10 @@ public class Block : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if (CompareTag("Breakable"))
+        {
+            DestroyBlock();
+        }
     }
 
     private void DestroyBlock()
