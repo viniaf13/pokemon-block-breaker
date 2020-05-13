@@ -59,6 +59,7 @@ public class Pokeball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         //Prevent boring loops
         Vector2 velocityTweak = new Vector2(x: Random.Range(0f, ballRandomFactor),
                                             y: Random.Range(0f, ballRandomFactor));
