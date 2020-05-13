@@ -15,6 +15,7 @@ public class Pokeball : MonoBehaviour
     // State
     Vector2 paddleToBall;
     private bool hasStarted = false;
+    private bool randomBounciness = false;
 
     //Cached references
     AudioSource myAudioSource;
@@ -28,6 +29,11 @@ public class Pokeball : MonoBehaviour
         paddleToBall = transform.position - paddle.transform.position;
         myAudioSource = GetComponent<AudioSource>();
         ballBody = GetComponent<Rigidbody2D>();
+
+        if (FindObjectOfType<GameSession>().IsLevel4())
+        {
+            randomBounciness = true;
+        }
     }
 
     // Update is called once per frame
@@ -69,7 +75,17 @@ public class Pokeball : MonoBehaviour
             //Allows multiple ball sounds but Im only using 1
             AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
             myAudioSource.PlayOneShot(clip);
-            ballBody.velocity += velocityTweak;
+            if (!randomBounciness)
+            {
+                ballBody.velocity += velocityTweak;
+            }
+            else
+            {
+                float verticalVelocity = (Random.Range(-1f, 1f) > 0f) ? ballRandomFactor : -ballRandomFactor;
+                ballBody.velocity = new Vector2(x: Random.Range(-ballRandomFactor, ballRandomFactor),
+                                                y: verticalVelocity);
+            }
+
         }
     }
 }

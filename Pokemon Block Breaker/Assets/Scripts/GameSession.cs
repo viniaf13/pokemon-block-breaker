@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
@@ -56,5 +57,12 @@ public class GameSession : MonoBehaviour
     public bool IsAutoplayEnabled()
     {
         return autoPlay;
+    }
+
+    public bool IsLevel4()
+    {
+        bool isItLevel4 = (SceneManager.GetActiveScene().name == "Level 4") ? true :
+                                                                              false;          
+        return isItLevel4;
     }
 }
