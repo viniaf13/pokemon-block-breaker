@@ -5,10 +5,10 @@ using UnityEngine;
 public class Pokeball : MonoBehaviour
 {
     //Configuration parameters
-    [SerializeField] Paddle paddle;
+    [SerializeField] Paddle paddle = default;
     [SerializeField] float ballVelocityX = 2f;
     [SerializeField] float ballVelocityY = 15f;
-    [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] AudioClip[] ballSounds = default;
     [SerializeField] float ballRandomFactor = 0.2f;
     
 

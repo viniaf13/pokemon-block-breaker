@@ -10,11 +10,13 @@ public class GameSession : MonoBehaviour
     //Configuration parameters
     [Range(0.1f,2f)][SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 150;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText = default;
     [SerializeField] bool autoPlay = false;
 
     //State
     [SerializeField] int score = 0;
+
+    [SerializeField] int currentLevel;
 
     //Singleton Pattern
     private void Awake()
@@ -49,6 +51,12 @@ public class GameSession : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+        scoreText.text = score.ToString();
+    }
+
     public void ResetGame()
     {
         Destroy(gameObject);
@@ -64,5 +72,15 @@ public class GameSession : MonoBehaviour
         bool isItLevel4 = (SceneManager.GetActiveScene().name == "Level 4") ? true :
                                                                               false;          
         return isItLevel4;
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        currentLevel = level;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
     }
 }

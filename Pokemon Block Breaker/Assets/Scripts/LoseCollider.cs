@@ -8,9 +8,7 @@ public class LoseCollider : MonoBehaviour
     //Load GameOver when the ball hits the collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneLoader sceneLoader = gameObject.AddComponent<SceneLoader>();
-
+        SceneLoader sceneLoader = FindObjectOfType<SceneLoader>();
         sceneLoader.LoadLastScene();
-
     }
 }
