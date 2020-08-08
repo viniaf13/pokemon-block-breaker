@@ -5,24 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] int currentSceneIndex;
+
+    private void Start()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
     public void LoadNextScene()
     {
-        //Get the build index of the current active scene
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        //Load the next scene
+        FindObjectOfType<GameSession>().SetCurrentLevel(currentSceneIndex + 1);
         SceneManager.LoadScene(currentSceneIndex + 1);
-
     }
 
     public void LoadPreviousScene()
     {
-        //Get the build index of the current active scene
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        //Load the previous scene
+        FindObjectOfType<GameSession>().SetCurrentLevel(currentSceneIndex - 1);
         SceneManager.LoadScene(currentSceneIndex - 1);
+    }
 
+    public void LoadLastLevel()
+    {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.ResetScore();
+        int lastLevel = gameSession.GetCurrentLevel();
+        SceneManager.LoadScene(lastLevel);
     }
 
     public void LoadStartScene()
@@ -30,18 +37,15 @@ public class SceneLoader : MonoBehaviour
         FindObjectOfType<GameSession>().ResetGame();
         SceneManager.LoadScene(0);
     }
-
     public void LoadLastScene()
     {
-        //Load the last scene
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.SetCurrentLevel(currentSceneIndex);
         SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
-        
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
-
-
 }

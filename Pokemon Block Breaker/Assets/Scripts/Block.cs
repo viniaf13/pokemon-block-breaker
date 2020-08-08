@@ -7,9 +7,9 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     //Configuration parameters
-    [SerializeField] AudioClip breakSound;
-    [SerializeField] GameObject blockSparklesVFX;
-    [SerializeField] Sprite[] hitSprites;
+    [SerializeField] AudioClip breakSound = default;
+    [SerializeField] GameObject blockSparklesVFX = default;
+    [SerializeField] Sprite[] hitSprites = default;
     int maxHits;
 
     //Cached reference
@@ -51,6 +51,9 @@ public class Block : MonoBehaviour
     private void ShowNextHitSprite()
     {
         int spriteIndex = timesHit - 1;
+
+        if (hitSprites.Length < spriteIndex + 1) return;
+
         if (hitSprites[spriteIndex] != null)
         {
             GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
